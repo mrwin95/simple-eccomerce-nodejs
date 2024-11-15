@@ -1,8 +1,9 @@
 import { log } from "console";
 import mongoose from "mongoose";
 import { countConnect } from "../helpers/check.connect";
+import config from "../configs/mongodb.config";
 
-const connectString = "mongodb://localhost:27017/shopDev";
+const connectString = `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
 
 class Database {
   static instance: Database;

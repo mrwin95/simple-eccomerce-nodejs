@@ -3,6 +3,8 @@ import morgan from "morgan";
 import helmet from "helmet";
 import compression from "compression";
 import { checkOverLoad, countConnect } from "./helpers/check.connect";
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
 
 // init middleware
