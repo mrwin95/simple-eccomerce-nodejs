@@ -1,5 +1,6 @@
 import { log } from "console";
 import mongoose from "mongoose";
+import { countConnect } from "../helpers/check.connect";
 
 const connectString = "mongodb://localhost:27017/shopDev";
 
@@ -19,7 +20,7 @@ class Database {
 
     mongoose
       .connect(connectString)
-      .then((_) => log("Connected to MongoDB"))
+      .then((_) => log("Connected to MongoDB", countConnect()))
       .catch((err) => log(`Error connect ${err}`));
   }
 
