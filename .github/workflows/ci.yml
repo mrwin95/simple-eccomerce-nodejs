@@ -1,5 +1,11 @@
 name: Unit Tests
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
@@ -10,6 +16,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "23.x"
+      - name: install pnpm
+        run: npm install -g pnpm
       - name: install dependencies
         run: pnpm install
       - name: run tests
