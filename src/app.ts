@@ -2,7 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 import compression from "compression";
-import { countConnect } from "./helpers/check.connect";
+import { checkOverLoad, countConnect } from "./helpers/check.connect";
 const app = express();
 
 // init middleware
@@ -13,6 +13,7 @@ app.use(compression());
 // init dbs
 import "./dbs/init.mongodb";
 // countConnect(); // open it to see the number of connections
+checkOverLoad();
 // Routes
 
 app.get("/", (req, res) => {
