@@ -9,6 +9,9 @@ const app = express();
 app.use(morgan("dev"));
 app.use(helmet());
 app.use(compression());
+
+// init dbs
+import "./dbs/init.mongodb";
 // Routes
 
 app.get("/", (req, res) => {
